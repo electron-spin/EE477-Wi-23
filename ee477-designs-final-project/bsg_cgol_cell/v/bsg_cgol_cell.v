@@ -27,16 +27,17 @@ module bsg_cgol_cell (
 
   // TODO: Design your bsg_cgl_cell
   // Hint: Find the module to count the number of neighbors from basejump
-  if posedge_clk and en_i == 1;
-    if state = live and COUNT_ONES(data_i) < 2:
-      state = dead;
-    else if state = live and ( COUNT_ONES(data_i) == 2 or COUNT_ONES(data_i) == 3 ):
-      state = live;
-    else if state = live and COUNT_ONES(data_i) > 3:
-      state = dead;
-    else if state = dead and COUNT_ONESee(data_i) == 3:
-      state = live;
-    
+  always @posedge_clk 
+    if en_i == 1;
+      if state = live and COUNT_ONES(data_i) < 2:
+        state = dead;
+      else if state = live and ( COUNT_ONES(data_i) == 2 or COUNT_ONES(data_i) == 3 ):
+        state = live;
+      else if state = live and COUNT_ONES(data_i) > 3:
+        state = dead;
+      else if state = dead and COUNT_ONESee(data_i) == 3:
+        state = live;
+  
   assign data_o = (update_i) ? update_val_i : state 
 
     
