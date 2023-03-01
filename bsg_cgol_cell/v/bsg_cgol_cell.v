@@ -28,27 +28,30 @@ module bsg_cgol_cell (
   typedef enum logic {alive=1, dead=0} state_e;
   state_e  state_n, state_r;
 
-  logic numOnes;
+  logic [2:0] numOnes;
 
   // TODO: Design your bsg_cgl_cell
   // Hint: Find the module to count the number of neighbors from basejump
   bsg_popcount #(.width_p(8)) count (.i(data_i), .o(numOnes));
 
   always_comb begin
-    if (en_1) begin
-      state_n = state_r
-      if ( (state_r == live) & (numOnes < 2) )                            state_n = dead;
-      else if ( (state_r == live) & (numOnes < 2) )                       state_n = dead;
-      else if ( (state_r == live) & ( (numOnes == 2) | (numOnes == 3) ) ) state_n = dead;
-      else if ( (state_r == live) & (numOnes > 2) )                       state_n = dead;
-      else if ( (state_r == dead) & (numOnes == 3) )                      state_n = alive;
-    end
-    else if (update_i) begin
+    if (en_i) begin
+      state_n = state_r;
+      if ( (state_r == alive) & (numOnes < 2) ) begin
+        state_n = dead;
+      end else if ( (state_r == alive) & ( (numOnes == 2) | (numOnes == 3) ) ) begin
+        state_n = alive;
+      end else if ( (state_r == alive) & (numOnes > 3) ) begin
+        state_n = dead;
+      end else if ( (state_r == dead) & (numOnes == 3) ) begin
+        state_n = alive;
+      end
+    end else if (update_i) begin
       state_n = update_val_i;
     end
   end
 
-  always_ff @(posedge clk) begin
+  always_ff @(posedge clk_i) begin
     state_r <= state_n;
   end
 

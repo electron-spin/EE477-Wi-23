@@ -21,6 +21,86 @@
 # Set the update value to 0, then set enbale to 1 and test with 0-8 live neighbors
 # Set the update value to 1, then set enbale to 1 and test with 0-8 live neighbors
 
+# Update, value = 0
+0001__0_0_00000000
+0010__000000000_0
+
+# Enable, 0 neighbors
+0001__1_0_00000000
+0010__000000000_0
+
+# Enable, 1 neighbors
+0001__1_0_00000001
+0010__000000000_0
+
+# Enable, 2 neighbors
+0001__1_0_00000011
+0010__000000000_0
+
+# Enable, 3 neighbors
+0001__1_0_00000111
+0010__000000000_1
+
+# Enable, 4 neighbors
+0001__1_0_00001111
+0010__000000000_0
+
+# Enable, 5 neighbors
+0001__1_0_00011111
+0010__000000000_0
+
+# Enable, 6 neighbors
+0001__1_0_00111111
+0010__000000000_0
+
+# Enable, 7 neighbors
+0001__1_0_01111111
+0010__000000000_0
+
+# Enable, 8 neighbors
+0001__1_0_11111111
+0010__000000000_0
+
+
+# Update, value = 1
+0001__0_1_00000000
+0010__000000000_1
+
+# Enable, 0 neighbors
+0001__1_0_00000000
+0010__000000000_0
+
+# Enable, 1 neighbors
+0001__1_0_00000001
+0010__000000000_0
+
+# Enable, 2 neighbors
+0001__1_0_00000011
+0010__000000000_0
+
+# Enable, 3 neighbors
+0001__1_0_00000111
+0010__000000000_1
+
+# Enable, 4 neighbors
+0001__1_0_00001111
+0010__000000000_0
+
+# Enable, 5 neighbors
+0001__1_0_00011111
+0010__000000000_0
+
+# Enable, 6 neighbors
+0001__1_0_00111111
+0010__000000000_0
+
+# Enable, 7 neighbors
+0001__1_0_01111111
+0010__000000000_0
+
+# Enable, 8 neighbors
+0001__1_0_11111111
+0010__000000000_0
 
 
 
