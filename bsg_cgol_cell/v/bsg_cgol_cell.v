@@ -28,7 +28,7 @@ module bsg_cgol_cell (
   typedef enum logic {alive=1, dead=0} state_e;
   state_e  state_n, state_r;
 
-  logic [2:0] numOnes;
+  logic [3:0] numOnes;
 
   // TODO: Design your bsg_cgl_cell
   // Hint: Find the module to count the number of neighbors from basejump
