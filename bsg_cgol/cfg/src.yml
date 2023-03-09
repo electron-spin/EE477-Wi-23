@@ -81,7 +81,7 @@ synthesis.inputs.input_files: [
   "${bsg_root}/bsg_misc/bsg_clkbuf.v",
   "${bsg_root}/bsg_misc/bsg_counter_clear_up.v",
   "${bsg_root}/bsg_misc/bsg_counter_up_down.v",
-  "${bsg_root}/bsg_misc/bsg_counter_dynamic_limit.v",
+  "${bsg_root}/bsg_misc/bsg_counter_dynamic_limit_en.v",
   "${bsg_root}/bsg_misc/bsg_counter_up_down_variable.v",
   "${bsg_root}/bsg_misc/bsg_crossbar_o_by_i.v",
   "${bsg_root}/bsg_misc/bsg_cycle_counter.v",

@@ -35,16 +35,18 @@ module bsg_cgol_ctrl #(
   assign     v_o = (state_r == eDONE);
 
   logic [game_len_width_lp-1:0] frames_temp;
-  assign frames_temp = (ready_o & v_i) ? frames_i : frames_temp; 
+  logic overflowed_o;
 
-  bsg_counter_dynamic_limit #(.width_p(game_len_width_lp)) bsgC_U_D (.clk_i, .reset_i, .limit_i(frames_temp), .counter_o);
+  bsg_dff_en #(.width_p(game_len_width_lp)) dff (.clk_i, .data_i(frames_i), .en_i(ready_o & v_i), .data_o(frames_temp));
+
+  bsg_counter_dynamic_limit_en #(.width_p(game_len_width_lp)) bsgC_U_D (.clk_i, .reset_i, .en_i(state_r == eBUSY), .limit_i(frames_temp), .counter_o, .overflowed_o);
 
   always_comb
     begin
       state_n = state_r;
       if (ready_o & v_i) begin
         state_n = eBUSY;
-      end else if ((state_r == eBUSY) & (counter_o == frames_temp)) begin
+      end else if ((state_r == eBUSY) & overflowed_o) begin
         state_n = eDONE;
       end else if (v_o & yumi_i) begin
         state_n = eWAIT;
@@ -59,17 +61,7 @@ module bsg_cgol_ctrl #(
           state_r <= state_n;
     end
 
-  assign update_o = (ready_o & v_i) ? 1'b1 : 
-                    (state_r == eBUSY) ? 1'b0 : 1'b0;
-  assign en_o = (ready_o & v_i) ? 1'b0 : 
-                    (state_r == eBUSY) ? 1'b1 : 1'b0;
-
-  // always_ff @(posedge clk_i) begin
-  //   update_r <= update_n;
-  //   en_r <= en_n;
-  // end
-
-  // assign update_o = update_r;
-  // assign en_o = en_r;
+  assign update_o = (state_r == eWAIT) & (state_n == eBUSY);
+  assign en_o = (state_r == eBUSY) & (counter_o < frames_temp);
 
 endmodule
