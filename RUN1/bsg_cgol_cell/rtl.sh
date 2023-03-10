@@ -1,8 +1,11 @@
-<<<<<<< HEAD
+#!/bin/bash
+
+if ! command -v code &> /dev/null
+then
+    function code { gedit "$@"; }
+fi
+
 make rtl
-=======
-cd make rtl
->>>>>>> Atharva_1.1
 make sim-rtl
 cd build/sim-rtl-rundir
 code run.log

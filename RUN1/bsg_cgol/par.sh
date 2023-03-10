@@ -1,3 +1,8 @@
+if ! command -v code &> /dev/null
+then
+    function code { gedit "$@"; }
+fi
+
 make par
 make sim-par
 cd build/par-rundir/timingReports
