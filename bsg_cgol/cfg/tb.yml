@@ -100,10 +100,10 @@ sim.inputs.tb_incdir_meta: [subst]
 sim.inputs.tb_defines: [
   "FSB_LEGACY=1",
   "NUM_MASTER_NODES=1",
-  "CORE_0_PERIOD=10000", # For ASIC
-  "IO_MASTER_0_PERIOD=20000", # For ASIC
-  "CORE_1_PERIOD=10000", # For testbench
-  "IO_MASTER_1_PERIOD=20000", # For testbench
+  "CORE_0_PERIOD=15000", # For ASIC
+  "IO_MASTER_0_PERIOD=25000", # For ASIC
+  "CORE_1_PERIOD=15000", # For testbench
+  "IO_MASTER_1_PERIOD=25000", # For testbench
 ]
 sim.inputs.tb_defines_meta: [subst]
 
