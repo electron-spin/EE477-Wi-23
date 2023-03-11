@@ -4,7 +4,6 @@ then
 fi
 
 make par
-make sim-par
 cd build/par-rundir/timingReports
 rm -rf *postRoute_all.tarpt
 rm -rf *postRoute_all_hold.tarpt
@@ -15,4 +14,8 @@ code *postRoute_all_hold.tarpt
 cd ../
 code *area.rpt
 code *power.rpt
+cd ../../
+make sim-par
+cd build/sim-syn-rundir 
+code run.log
 cd ../../

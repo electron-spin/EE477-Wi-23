@@ -1,0 +1,1 @@
+dconf-WARNING **: 14:30:29.888: failed to commit changes to dconf: GDBus.Error:org.gtk.GDBus.UnmappedGError.Quark._g_2dfile_2derror_2dquark.Code2: Failed to open file “/homes/pathe2/.config/dconf/user.txt”: Permission denied

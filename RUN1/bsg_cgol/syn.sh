@@ -4,10 +4,10 @@ then
 fi
 
 make syn
-make sim-syn
 cd build/syn-rundir/reports
 code final_time*
-cd ../../
-cd sim-syn-rundir
+cd ../../../
+make sim-syn
+cd build/sim-syn-rundir
 code run.log
 cd ../../
