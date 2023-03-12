@@ -19,3 +19,4 @@ make redo-sim-par
 cd build/sim-par-rundir
 code run.log
 cd ../../
+make lvs

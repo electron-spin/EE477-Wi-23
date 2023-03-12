@@ -16,6 +16,8 @@ code *area.rpt
 code *power.rpt
 cd ../../
 make sim-par
-cd build/sim-syn-rundir 
+cd build/sim-par-rundir 
 code run.log
 cd ../../
+make drc
+make lvs
