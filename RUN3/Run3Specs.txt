@@ -1,1 +1,0 @@
-Run 3 maintains 1000x1000 area but pushes performance
