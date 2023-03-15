@@ -1,0 +1,2 @@
+copy and paste all .sh files into directory (i.e. bsg_guts_incr)
+run from directory.
